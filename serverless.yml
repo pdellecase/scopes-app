@@ -1,14 +1,17 @@
 # NOTE: update this with your service name
 service: scopes-app-api
 
+
 # Create an optimized package for our functions 
 package:
   individually: true
+
 
 plugins:
   - serverless-bundle # Package our functions with Webpack
   - serverless-offline
   - serverless-dotenv-plugin # Load .env as environment variables
+
 
 provider:
   name: aws
@@ -36,6 +39,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
+
 
 functions:
 
@@ -102,7 +106,6 @@ functions:
           cors: true
           authorizer: aws_iam
 
-
   billing:
     # Defines an HTTP API endpoint that calls the main function in billing.js
     # - path: url path is /billing
@@ -114,3 +117,9 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+
+
+# Create our resources with separate CloudFormation templates
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
