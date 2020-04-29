@@ -17,7 +17,8 @@ custom:
   # commands. Or fallsback to what we have set in the provider section.
   stage: ${opt:stage, self:provider.stage}
   # Set the table name here so we can use it while testing locally
-  tableName: ${self:custom.stage}-scopes
+  scopesTableName: ${self:custom.stage}-scopes
+  usersTableName: ${self:custom.stage}-users
 
 provider:
   name: aws
@@ -29,7 +30,8 @@ provider:
   # These environment variables are made available to our functions
   # under process.env.
   environment:
-    tableName: ${self:custom.tableName}
+    scopesTableName: ${self:custom.scopesTableName}
+    usersTableName: ${self:custom.usersTableName}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
@@ -47,7 +49,8 @@ provider:
       # Restrict our IAM role permissions to
       # the specific table for the stage
       Resource:
-        - "Fn::GetAtt": [ NotesTable, Arn ]
+        - "Fn::GetAtt": [ ScopesTable, Arn ]
+        - "Fn::GetAtt": [ UsersTable, Arn ]
 
 
 functions:
