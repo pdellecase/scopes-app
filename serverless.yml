@@ -55,6 +55,8 @@ provider:
 
 functions:
 
+  ##### SCOPES #####
+
   create:
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /scopes
@@ -117,6 +119,73 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+
+  ##### USERS #####
+
+  user-create:
+  # Defines an HTTP API endpoint that calls the main function in user-create.js
+  # - path: url path is /users
+  # - method: POST request
+  # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
+  #     domain api call
+  # - authorizer: authenticate using the AWS IAM role
+    handler: user-create.main
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  user-get:
+    # Defines an HTTP API endpoint that calls the main function in user-get.js
+    # - path: url path is /users/{id}
+    # - method: GET request
+    handler: user-get.main
+    events:
+      - http:
+          path: users/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  user-list:
+    # Defines an HTTP API endpoint that calls the main function in user-list.js
+    # - path: url path is /users
+    # - method: GET request
+    handler: user-list.main
+    events:
+      - http:
+          path: users
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  user-update:
+    # Defines an HTTP API endpoint that calls the main function in user-update.js
+    # - path: url path is /users/{id}
+    # - method: PUT request
+    handler: user-update.main
+    events:
+      - http:
+          path: users/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  user-delete:
+    # Defines an HTTP API endpoint that calls the main function in user-delete.js
+    # - path: url path is /users/{id}
+    # - method: DELETE request
+    handler: user-delete.main
+    events:
+      - http:
+          path: users/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  ##### BILLING #####
 
   billing:
     # Defines an HTTP API endpoint that calls the main function in billing.js
