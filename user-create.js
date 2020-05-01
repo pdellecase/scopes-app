@@ -13,6 +13,7 @@ export async function main(event, context) {
     // - 'userId': user identities are federated through the
     //             Cognito Identity Pool, we will use the identity id
     //             as the user id of the authenticated user
+    // - 'email': parsed from request body
     // - 'profile': parsed from request body
     // - 'firstname': parsed from request body
     // - 'lastname': parsed from request body
@@ -24,7 +25,8 @@ export async function main(event, context) {
     // - 'modifiedAt': current Unix timestamp
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      profile: data.profile,
+      email: data.email,
+      profile: "Standard User",
       firstname: data.firstname,
       lastname: data.lastname,
       initials: data.initials,

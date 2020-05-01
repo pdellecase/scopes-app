@@ -12,9 +12,9 @@ export async function main(event, context) {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET profile = :profile, firstname = :firstname, lastname = : lastname, initials = :initials, role = :role, region = :region, attachment = :attachment, modifiedAt = :modifiedAt",
+    UpdateExpression: "SET email = :email, firstname = :firstname, lastname = : lastname, initials = :initials, role = :role, region = :region, attachment = :attachment, modifiedAt = :modifiedAt",
     ExpressionAttributeValues: {
-      ":profile": data.profile || null,
+      ":email": data.email || null,
       ":firstname": data.firstname || null,
       ":lastname": data.lastname || null,
       ":initials": data.initials || null,
