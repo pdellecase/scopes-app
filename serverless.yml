@@ -139,12 +139,12 @@ functions:
 
   user-get:
     # Defines an HTTP API endpoint that calls the main function in user-get.js
-    # - path: url path is /users/{id}
+    # - path: url path is /users
     # - method: GET request
     handler: user-get.main
     events:
       - http:
-          path: users/{id}
+          path: users
           method: get
           cors: true
           authorizer: aws_iam
@@ -163,24 +163,24 @@ functions:
 
   user-update:
     # Defines an HTTP API endpoint that calls the main function in user-update.js
-    # - path: url path is /users/{id}
+    # - path: url path is /users
     # - method: PUT request
     handler: user-update.main
     events:
       - http:
-          path: users/{id}
+          path: users
           method: put
           cors: true
           authorizer: aws_iam
 
   user-delete:
     # Defines an HTTP API endpoint that calls the main function in user-delete.js
-    # - path: url path is /users/{id}
+    # - path: url path is /users
     # - method: DELETE request
     handler: user-delete.main
     events:
       - http:
-          path: users/{id}
+          path: users
           method: delete
           cors: true
           authorizer: aws_iam
