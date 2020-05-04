@@ -139,12 +139,12 @@ functions:
 
   user-get:
     # Defines an HTTP API endpoint that calls the main function in user-get.js
-    # - path: url path is /users
+     # - path: url path is /users/{id}
     # - method: GET request
     handler: user-get.main
     events:
       - http:
-          path: users
+          path: users/{id}
           method: get
           cors: true
           authorizer: aws_iam
