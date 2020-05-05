@@ -163,12 +163,12 @@ functions:
 
   user-update:
     # Defines an HTTP API endpoint that calls the main function in user-update.js
-     # - path: url path is /users/{id}
+     # - path: url path is /users
     # - method: PUT request
     handler: user-update.main
     events:
       - http:
-          path: users/{id}
+          path: users
           method: put
           cors: true
           authorizer: aws_iam

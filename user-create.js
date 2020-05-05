@@ -18,7 +18,7 @@ export async function main(event, context) {
     // - 'firstname': parsed from request body
     // - 'lastname': parsed from request body
     // - 'initials': parsed from request body
-    // - 'role': parsed from request body
+    // - 'position': parsed from request body
     // - 'region': parsed from request body
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
@@ -30,7 +30,7 @@ export async function main(event, context) {
       firstname: data.firstname,
       lastname: data.lastname,
       initials: data.initials,
-      role: data.role,
+      position: data.position,
       region: data.region,
       attachment: data.attachment,
       createdAt: Date.now(),
