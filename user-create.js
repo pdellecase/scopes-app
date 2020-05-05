@@ -19,7 +19,7 @@ export async function main(event, context) {
     // - 'lastname': parsed from request body
     // - 'initials': parsed from request body
     // - 'job': parsed from request body
-    // - 'region': parsed from request body
+    // - 'geography': parsed from request body
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
     // - 'modifiedAt': current Unix timestamp
@@ -31,7 +31,7 @@ export async function main(event, context) {
       lastname: data.lastname,
       initials: data.initials,
       job: data.job,
-      region: data.region,
+      geography: data.geography,
       attachment: data.attachment,
       createdAt: Date.now(),
       modifiedAt: Date.now()
