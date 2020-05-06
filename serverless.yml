@@ -184,6 +184,19 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+     
+  user-login:
+    # Defines an HTTP API endpoint that calls the main function in user-login.js
+     # - path: url path is /login
+    # - method: GET request
+    handler: user-login.main
+    events:
+      - http:
+          path: login
+          method: get
+          cors: true
+          authorizer: aws_iam
+
 
   ##### BILLING #####
 

@@ -23,6 +23,8 @@ export async function main(event, context) {
     // - 'attachment': parsed from request body
     // - 'createdAt': current Unix timestamp
     // - 'modifiedAt': current Unix timestamp
+    // - 'lastLogin': current Unix timestamp
+    // - 'userActive': is user active (true at creation)
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
       email: data.email,
@@ -34,7 +36,9 @@ export async function main(event, context) {
       geography: data.geography,
       attachment: data.attachment,
       createdAt: Date.now(),
-      modifiedAt: Date.now()
+      modifiedAt: Date.now(),
+      lastLogin: Date.now(),
+      userActive: true
     }
   };
 
