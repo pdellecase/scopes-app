@@ -20,6 +20,7 @@ export async function main(event, context) {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
+    UpdateExpression: "SET lastLogin = :lastLogin",
     ExpressionAttributeValues: {
       ":lastLogin": Date.now()
     },
