@@ -187,7 +187,7 @@ functions:
      
   user-login:
     # Defines an HTTP API endpoint that calls the main function in user-login.js
-     # - path: url path is /login
+    # - path: url path is /login
     # - method: GET request
     handler: user-login.main
     events:
