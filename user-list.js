@@ -4,8 +4,8 @@ import { success, failure } from "./libs/response-lib";
 export async function main(event, context) {
   const params = {
     TableName: process.env.usersTableName
-    // Scan call is likely the easiest of all DynamoDB calls. 
-    // Simply provide a table name, and it will return all Items in the table 
+    // Scan call is likely the easiest of all DynamoDB calls.
+    // Simply provide a table name, and it will return all Items in the table
     // (up to a 1MB limit)
   };
 
