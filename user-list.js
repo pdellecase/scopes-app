@@ -3,18 +3,14 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context) {
   const params = {
-    TableName: process.env.usersTableName,
-    // 'KeyConditionExpression' defines the condition for the query
-    // - 'userId = :userId': only return items with matching 'userId'
-    //   partition key
-    // 'ExpressionAttributeValues' defines the value in the condition
-    // - ':userId': defines 'userId' to be Identity Pool identity id
-    //   of the authenticated user
-     KeyConditionExpression: "*"
+    TableName: process.env.usersTableName
+    // Scan call is likely the easiest of all DynamoDB calls. 
+    // Simply provide a table name, and it will return all Items in the table 
+    // (up to a 1MB limit)
   };
 
   try {
-    const result = await dynamoDbLib.call("query", params);
+    const result = await dynamoDbLib.call("scan", params);
     // Return the matching list of items in response body
     return success(result.Items);
   } catch (e) {
