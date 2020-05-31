@@ -210,7 +210,7 @@ functions:
     handler: crm-search.main
     events:
       - http:
-          path: crm-search/{client-key}/{search-string}/{services-only}/{scoping-contact}
+          path: crm-search/{clientKey}/{searchString}/{servicesOnly}/{scopingContact}
           method: get
           cors: true
           authorizer: aws_iam
