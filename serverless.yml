@@ -33,6 +33,9 @@ provider:
     scopesTableName: ${self:custom.scopesTableName}
     usersTableName: ${self:custom.usersTableName}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
+    crmMiddewareUrl: ${env:CRM_MIDDLEWARE_URL}
+    crmMiddlewareToken: ${env:CRM_MIDDLEWARE_TOKEN}
+
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -197,6 +200,20 @@ functions:
           cors: true
           authorizer: aws_iam
 
+
+  ##### CRM #####
+
+  crm-search:
+    # Defines an HTTP API endpoint that calls the main function in crm-search.js
+    # - path: url path is /crm-search/{client-key}/{search-string}/{services-only}/{scoping-contact}
+    # - method: GET request
+    handler: crm-search.main
+    events:
+      - http:
+          path: crm-search/{client-key}/{search-string}/{services-only}/{scoping-contact}
+          method: get
+          cors: true
+          authorizer: aws_iam
 
   ##### BILLING #####
 
