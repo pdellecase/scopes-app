@@ -205,12 +205,12 @@ functions:
 
   crm-search:
     # Defines an HTTP API endpoint that calls the main function in crm-search.js
-    # - path: url path is /crm-search/{client-key}/{search-string}/{services-only}/{scoping-contact}
+    # - path: url path is /crm/{client-key}/{search-string}/{services-only}/{scoping-contact}
     # - method: GET request
     handler: crm-search.main
     events:
       - http:
-          path: crm-search/{clientKey}/{searchString}/{servicesOnly}/{scopingContact}
+          path: crm/{clientKey}/{searchString}/{servicesOnly}/{scopingContact}
           method: get
           cors: true
           authorizer: aws_iam
