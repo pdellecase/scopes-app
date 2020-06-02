@@ -19,7 +19,8 @@ export async function main(event, context) {
     console.log("CRM-SEARCH Received:clientKey=" + clientKey +", searchString=" + searchString + ", servicesOnly=" + servicesOnly + ", scopingContact=" + scopingContact );
 
     var https = require('https');
-    exports.handler = (event, context, callback) => {
+    console.log("YO 1");
+    
       var params = {
                     host: crmMiddlewareUrl,
                     path: "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only" + servicesOnly,
@@ -29,6 +30,7 @@ export async function main(event, context) {
                    };
 
       var req = https.request(params, function(res) {
+        console.log("YO 2");
         let data = '';
         console.log('STATUS: ' + res.statusCode);
         res.setEncoding('utf8');
@@ -41,7 +43,7 @@ export async function main(event, context) {
         });
       });
       req.end();
-    };
+    
     //const result = await dynamoDbLib.call("scan", params);
     // Return the matching list of items in response body
     //return success(result.Items);
