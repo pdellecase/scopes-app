@@ -20,7 +20,6 @@ export async function main(event, context) {
 
     var https = require('https');
     console.log("YO 1");
-    
       var params = {
                     host: crmMiddlewareUrl,
                     path: "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only" + servicesOnly,
@@ -43,7 +42,6 @@ export async function main(event, context) {
         });
       });
       req.end();
-    
     //const result = await dynamoDbLib.call("scan", params);
     // Return the matching list of items in response body
     //return success(result.Items);
