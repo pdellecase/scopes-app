@@ -38,15 +38,17 @@ export async function main(event, context) {
         dataString += chunk;
       });
       res.on('end', () => {
+        console.log("Success >> " + JSON.stringify(JSON.parse(dataString)));
         return success(JSON.parse(dataString));
       });
-    }); 
+    });
     req.on('error', (e) => {
+      console.log("Failure >> " + e.message);
       return failure({ error: e.message });
     });
   });
   return response;
-/**  
+/**
   try {
     console.log("CRM-SEARCH Received:crmMiddlewareUrl=" + crmMiddlewareUrl +", crmMiddlewareToken=" + crmMiddlewareToken );
     console.log("CRM-SEARCH Received:clientKey=" + clientKey +", searchString=" + searchString + ", servicesOnly=" + servicesOnly + ", scopingContact=" + scopingContact );
