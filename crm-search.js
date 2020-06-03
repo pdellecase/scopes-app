@@ -18,7 +18,7 @@ export async function main(event, context) {
   let dataString = '';
   let crmMiddlewarePath = '';
   if(scopingContact ==='null'){
-    crmMiddlewarePath = "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only" + servicesOnly;
+    crmMiddlewarePath = "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only=" + servicesOnly;
   } else {
     crmMiddlewarePath = "?client-key=" + clientKey + "&scoping-contact=" + scopingContact;
   }
