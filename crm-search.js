@@ -16,7 +16,12 @@ export async function main(event, context) {
 
   var https = require('https');
   let dataString = '';
-  const crmMiddlewarePath = "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only" + servicesOnly
+  let crmMiddlewarePath = '';
+  if(scopingContact ==='null'){
+    crmMiddlewarePath = "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only" + servicesOnly;
+  } else {
+    crmMiddlewarePath = "?client-key=" + clientKey + "&scoping-contact=" + scopingContact;
+  }
   console.log("CRM-SEARCH crmMiddlewareUrl=" + crmMiddlewareUrl);
   console.log("CRM-SEARCH crmMiddlewarePath=" + crmMiddlewarePath);
   var params = {
@@ -24,7 +29,7 @@ export async function main(event, context) {
     path: crmMiddlewarePath,
     method: 'GET',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded',
-               'x-csrf-token': 'PYGLj6gMaQCZ3r7Ur5OrPgp3ePvzKzCD' }
+               'x-csrf-token': crmMiddlewareToken}
   };
 
   const response = await new Promise((resolve, reject) => {
@@ -40,9 +45,8 @@ export async function main(event, context) {
       return failure({ error: e.message });
     });
   });
-  
+  return response;
 /**  
-
   try {
     console.log("CRM-SEARCH Received:crmMiddlewareUrl=" + crmMiddlewareUrl +", crmMiddlewareToken=" + crmMiddlewareToken );
     console.log("CRM-SEARCH Received:clientKey=" + clientKey +", searchString=" + searchString + ", servicesOnly=" + servicesOnly + ", scopingContact=" + scopingContact );
@@ -79,6 +83,5 @@ export async function main(event, context) {
     console.log(e);
     return failure({ status: false });
   }
-
   */
 }
