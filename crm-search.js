@@ -26,6 +26,7 @@ export async function main(event, context) {
   console.log("CRM-SEARCH crmMiddlewarePath=" + crmMiddlewarePath);
   var params = {
     host: crmMiddlewareUrl,
+    port:443,
     path: crmMiddlewarePath,
     method: 'GET',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded',
