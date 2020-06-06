@@ -29,8 +29,7 @@ export async function main(event, context) {
     port:443,
     path: crmMiddlewarePath,
     method: 'GET',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded',
-               'x-csrf-token': crmMiddlewareToken}
+    headers: { 'x-csrf-token': crmMiddlewareToken}
   };
 
   const response = await new Promise((resolve, reject) => {
