@@ -3,6 +3,7 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context) {
 
+  console.log("CRM-SEARCH starting ...");
   // Load CRM Middleware URL and Token from the  environment variables
   const crmMiddlewareUrl = process.env.crmMiddewareUrl;
   const crmMiddlewareToken = process.env.crmMiddlewareToken;
@@ -18,18 +19,19 @@ export async function main(event, context) {
   let dataString = '';
   let crmMiddlewarePath = '';
   if(scopingContact ==='null'){
-    crmMiddlewarePath = "?client-key=" + clientKey + "&search-string=" + searchString + "&services-only=" + servicesOnly;
+    crmMiddlewarePath = "/?client-key=" + clientKey + "&search-string=" + searchString + "&services-only=" + servicesOnly;
   } else {
-    crmMiddlewarePath = "?client-key=" + clientKey + "&scoping-contact=" + scopingContact;
+    crmMiddlewarePath = "/?client-key=" + clientKey + "&scoping-contact=" + scopingContact;
   }
-  console.log("CRM-SEARCH crmMiddlewareUrl=" + crmMiddlewareUrl);
-  console.log("CRM-SEARCH crmMiddlewarePath=" + crmMiddlewarePath);
+  console.log("CRM-SEARCH crmMiddlewareUrl = " + crmMiddlewareUrl);
+  console.log("CRM-SEARCH crmMiddlewarePath = " + crmMiddlewarePath);
   var params = {
     host: crmMiddlewareUrl,
-    port:443,
     path: crmMiddlewarePath,
     method: 'GET',
-    headers: { 'x-csrf-token': crmMiddlewareToken}
+    rejectUnauthorized: false,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded',
+               'x-csrf-token': crmMiddlewareToken}
   };
 
   const response = await new Promise((resolve, reject) => {

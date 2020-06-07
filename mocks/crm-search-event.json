@@ -1,0 +1,13 @@
+{
+    "pathParameters": {
+      "clientKey": "DZNW1C29HoPikhT8bmVf",
+      "searchString": "vorw",
+      "servicesOnly": "no",
+      "scopingContact": "null"
+    },
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "0bb24e51-43e2-448a-935e-0e60c87acf71"
+      }
+    }
+}
