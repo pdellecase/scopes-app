@@ -1,9 +1,11 @@
 {
     "pathParameters": {
-      "clientKey": "DZNW1C29HoPikhT8bmVf",
+      "clientKey": "XXXXXXXXXX",
+      "id": "0061E00001FhnaNQAR",
+      "full": "yes",
       "searchString": "vorw",
       "servicesOnly": "no",
-      "scopingContact": "null"
+      "scopingContact": "0058000000E8BBbAAN"
     },
     "requestContext": {
       "identity": {
