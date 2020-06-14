@@ -17,7 +17,7 @@ export async function main(event, context) {
   const scopingContact = event.pathParameters.scopingContact;
 
   // ** Build the API path based on the parameter provided **
-  let crmMiddlewarePath = '';
+  let crmMiddlewarePath = '1';
 
   if((clientKey === null)||(clientKey ===undefined)||(clientKey === 'null')){
     return failure({ error: "No Client Key provided" });
