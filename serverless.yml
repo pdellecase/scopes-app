@@ -33,7 +33,7 @@ provider:
     scopesTableName: ${self:custom.scopesTableName}
     usersTableName: ${self:custom.usersTableName}
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
-    crmMiddewareUrl: ${env:CRM_MIDDLEWARE_URL}
+    crmMiddewareReadEndpoint: ${env:CRM_MIDDLEWARE_READ_ENDPOINT}
     crmMiddlewareToken: ${env:CRM_MIDDLEWARE_TOKEN}
 
 

@@ -4,7 +4,7 @@ export async function main(event, context) {
 
   console.log("CRM-SEARCH initiated ...");
   // Load CRM Middleware URL and Token from the  environment variables
-  const crmMiddlewareUrl = process.env.crmMiddewareUrl;
+  const crmMiddewareReadEndpoint = process.env.crmMiddewareReadEndpoint;
   const crmMiddlewareToken = process.env.crmMiddlewareToken;
 
   // Get parameters from API Call
@@ -38,7 +38,7 @@ export async function main(event, context) {
     crmMiddlewarePath = "/?client-key=" + clientKey + "&id=" + id + "&full=" + full;
   }
 
-  console.log("CRM-SEARCH crmMiddlewareUrl = " + crmMiddlewareUrl);
+  console.log("CRM-SEARCH crmMiddewareReadEndpoint = " + crmMiddewareReadEndpoint);
   console.log("CRM-SEARCH crmMiddlewarePath = " + crmMiddlewarePath);
 
   const http = require('https');
@@ -52,7 +52,7 @@ export async function main(event, context) {
   function httprequest() {
     return new Promise((resolve, reject) => {
       const options = {
-          host: crmMiddlewareUrl,
+          host: crmMiddewareReadEndpoint,
           path: crmMiddlewarePath,
           port: 443,
           method: 'GET',
