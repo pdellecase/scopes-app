@@ -2,7 +2,7 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context) {
 
-  console.log("CRM-SEARCH initiated ...");
+  console.log("CRM-GET initiated ...");
   // Load CRM Middleware URL and Token from the  environment variables
   const crmMiddewareReadEndpoint = process.env.crmMiddewareReadEndpoint;
   const crmMiddlewareToken = process.env.crmMiddlewareToken;

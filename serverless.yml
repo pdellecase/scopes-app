@@ -203,17 +203,30 @@ functions:
 
   ##### CRM #####
 
-  crm-search:
-    # Defines an HTTP API endpoint that calls the main function in crm-search.js
+  crmsearch:
+    # Defines an HTTP API endpoint that calls the main function in crm-get.js
     # - path: url path is /crm/{client-key}/{search-string}/{services-only}/{scoping-contact}
     # - method: GET request
-    handler: crm-search.main
+    handler: crm-get.main
     events:
       - http:
-          path: crm/{clientKey}/{searchString}/{servicesOnly}/{scopingContact}
+          path: crmsearch/{clientKey}/{searchString}/{servicesOnly}/{scopingContact}
           method: get
           cors: true
           authorizer: aws_iam
+
+  crmget:
+    # Defines an HTTP API endpoint that calls the main function in crm-get.js
+    # - path: url path is /crm/{client-key}/{search-string}/{services-only}/{scoping-contact}
+    # - method: GET request
+    handler: crm-get.main
+    events:
+      - http:
+          path: crmget/{clientKey}/{id}/{full}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
 
   ##### BILLING #####
 
