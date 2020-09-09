@@ -56,7 +56,8 @@ export async function main(event, context) {
           port: 443,
           method: 'GET',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded',
-               'x-csrf-token': crmMiddlewareToken}
+               'x-csrf-token': crmMiddlewareToken},
+          timeout: 10000
       };
       const req = http.request(options, (res) => {
         if (res.statusCode < 200 || res.statusCode >= 300) {
