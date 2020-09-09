@@ -38,13 +38,12 @@ export async function main(event, context) {
     crmMiddlewarePath = "/?client-key=" + clientKey + "&id=" + id + "&full=" + full;
   }
 
-  console.log("CRM-SEARCH crmMiddewareReadEndpoint = " + crmMiddewareReadEndpoint);
-  console.log("CRM-SEARCH crmMiddlewarePath = " + crmMiddlewarePath);
+  console.log("CRM-GET crmMiddeware URI = " + crmMiddewareReadEndpoint + crmMiddlewarePath);
 
   const http = require('https');
 
   return httprequest().then((data) => {
-    console.log("CRM-SEARCH Success: statusCode 200");
+    console.log("CRM-GET Success: statusCode 200");
     return success(data);
   });
 
