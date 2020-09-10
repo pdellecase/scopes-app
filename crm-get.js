@@ -57,7 +57,7 @@ export async function main(event, context) {
           method: 'GET',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded',
                'x-csrf-token': crmMiddlewareToken},
-          timeout: 10000
+          timeout: 20000
       };
       const req = http.request(options, (res) => {
         if (res.statusCode < 200 || res.statusCode >= 300) {
@@ -80,7 +80,7 @@ export async function main(event, context) {
         });
       });
 
-      req.socket.setTimeout(10000);
+      req.setTimeout(20000);
 
       req.on('error', (e) => {
         console.log("Error = " + e.message);
