@@ -80,6 +80,8 @@ export async function main(event, context) {
         });
       });
 
+      req.socket.setTimeout(10000); 
+
       req.on('error', (e) => {
         console.log("Error = " + e.message);
         return failure({ error: e.message });
