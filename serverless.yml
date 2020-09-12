@@ -25,6 +25,7 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: eu-west-1
+  timeout: 10 # The default is 6 seconds. Note: API Gateway current maximum is 30 seconds
 
 
   # These environment variables are made available to our functions
@@ -214,6 +215,7 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+    timeout: 20 # Timeout in sec. for this specific function to prevent 502 errors on lambda function when external API cold starts
 
   crmget:
     # Defines an HTTP API endpoint that calls the main function in crm-get.js
@@ -226,6 +228,7 @@ functions:
           method: get
           cors: true
           authorizer: aws_iam
+    timeout: 20 # Timeout in sec. for this specific function to prevent 502 errors on lambda function when external API cold starts
 
 
   ##### BILLING #####
