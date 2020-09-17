@@ -19,7 +19,7 @@ export async function main(event, context) {
     "attachment = :attachment, modifiedAt = :modifiedAt",
     ExpressionAttributeValues: {
       ":scopeName": data.scopeName || null,
-      ":crmMainOppSyncedAt": data.crmMainOppSyncedAt || null,
+      ":crmSyncedAt": data.crmSyncedAt || null,
       ":crmMainOppId": data.crmMainOppId || null,
       ":crmMainOppName": data.crmMainOppName || null,
       ":crmMainOppStage": data.crmMainOppStage || null,
@@ -36,7 +36,6 @@ export async function main(event, context) {
       ":crmMainOppDiscount": data.crmMainOppDiscount || null,
       ":crmMainOppMEDDPICC": data.crmMainOppMEDDPICC || null,
       ":crmMainOppDScore": data.crmMainOppDScore || null,
-      ":crmServicesOppSyncedAt": data.crmServicesOppSyncedAt || null,
       ":crmServicesOppId": data.crmServicesOppId || null,
       ":crmServicesOppName": data.crmServicesOppName || null,
       ":crmServicesOppStage": data.crmServicesOppStage || null,
