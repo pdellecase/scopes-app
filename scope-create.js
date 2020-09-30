@@ -63,7 +63,6 @@ export async function main(event, context) {
       crmMainOppAccountOwnerMarketSegment: data.crmMainOppAccountOwnerMarketSegment,
       crmMainOppAccountAssignedTerritory: data.crmMainOppAccountAssignedTerritory,
       crmMainOppAccountMgrTeam: data.crmMainOppAccountMgrTeam,
-      crmMainOppAccount: data.crmMainOppAccount,
       crmMainOppSCName: data.crmMainOppSCName,
       crmServicesOppId: data.crmServicesOppId,
       crmServicesOppName: data.crmServicesOppName,

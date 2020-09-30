@@ -60,7 +60,6 @@ export async function main(event, context) {
       ":crmMainOppAccountOwnerMarketSegment": data.crmMainOppAccountOwnerMarketSegment || null,
       ":crmMainOppAccountAssignedTerritory": data.crmMainOppAccountAssignedTerritory || null,
       ":crmMainOppAccountMgrTeam": data.crmMainOppAccountMgrTeam || null,
-      ":crmMainOppAccount": data.crmMainOppAccount || null,
       ":crmMainOppSCName": data.crmMainOppSCName || null,
       ":crmServicesOppId": data.crmServicesOppId || null,
       ":crmServicesOppName": data.crmServicesOppName || null,
